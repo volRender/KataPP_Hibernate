@@ -28,12 +28,12 @@ public class Main {
             System.out.println(u);
         }
 
+        //remove user by id
+        dao.removeUserById(2);
+
         /*
         //create table Users
         service.createUsersTable();
-
-
-
 
         //clean all data from the table
         service.cleanUsersTable();
