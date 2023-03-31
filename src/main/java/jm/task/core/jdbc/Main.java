@@ -1,5 +1,6 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserServiceImpl;
@@ -13,9 +14,13 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        SessionFactory sessionFactory = Util.buildSessionFactory();
-        Session session = sessionFactory.openSession();
 
+        //save 4 users for table data
+        UserDaoHibernateImpl dao = new UserDaoHibernateImpl();
+        dao.saveUser("Daniil", "Litvishko", (byte) 23);
+        dao.saveUser("Vladislav", "Varakin", (byte) 23);
+        dao.saveUser("Nikita", "Vasiliev", (byte) 22);
+        dao.saveUser("Lena", "Soroka", (byte) 22);
 
         /*
         //create table Users
