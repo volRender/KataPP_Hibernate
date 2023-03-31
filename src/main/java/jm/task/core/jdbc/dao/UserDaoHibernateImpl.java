@@ -35,6 +35,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.getTransaction().commit();
         } catch (Throwable e) {
             session.getTransaction().rollback();
+            System.out.println("Ошибка при добавлении пользователя");
         } finally {
             sessionFactory.close();
         }
@@ -47,6 +48,19 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
+        SessionFactory sessionFactory = Util.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            List<User> userList = session.createQuery("from User").getResultList();
+            session.getTransaction().commit();
+            return userList;
+        } catch (Throwable e) {
+            session.getTransaction().rollback();
+            System.out.println("Ошибка при выводе всех данных из таблицы");
+        } finally {
+            sessionFactory.close();
+        }
         return null;
     }
 

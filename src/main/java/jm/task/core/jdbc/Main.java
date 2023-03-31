@@ -22,21 +22,18 @@ public class Main {
         dao.saveUser("Nikita", "Vasiliev", (byte) 22);
         dao.saveUser("Lena", "Soroka", (byte) 22);
 
+        // get all users info from the table
+        List<User> userList = dao.getAllUsers();
+        for (User u: userList) {
+            System.out.println(u);
+        }
+
         /*
         //create table Users
         service.createUsersTable();
 
-        //create 4 users for table data
-        service.saveUser("Daniil", "Litvishko", (byte) 23);
-        service.saveUser("Vladislav", "Varakin", (byte) 23);
-        service.saveUser("Nikita", "Vasiliev", (byte) 22);
-        service.saveUser("Lena", "Soroka", (byte) 22);
 
-        //get all users info from the table
-        List<User> userList = service.getAllUsers();
-        for (User u :userList) {
-            System.out.println(u);
-        }
+
 
         //clean all data from the table
         service.cleanUsersTable();
