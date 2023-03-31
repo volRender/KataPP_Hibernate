@@ -14,9 +14,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        UserDaoHibernateImpl dao = new UserDaoHibernateImpl();
+
+        //create table Users
+        dao.createUsersTable();
 
         //save 4 users for table data
-        UserDaoHibernateImpl dao = new UserDaoHibernateImpl();
         dao.saveUser("Daniil", "Litvishko", (byte) 23);
         dao.saveUser("Vladislav", "Varakin", (byte) 23);
         dao.saveUser("Nikita", "Vasiliev", (byte) 22);
@@ -28,13 +31,8 @@ public class Main {
             System.out.println(u);
         }
 
-        //remove user by id
-        dao.removeUserById(2);
 
         /*
-        //create table Users
-        service.createUsersTable();
-
         //clean all data from the table
         service.cleanUsersTable();
 
