@@ -31,13 +31,11 @@ public class Main {
             System.out.println(u);
         }
 
+        //clean all data from the table
+        dao.cleanUsersTable();
+
         //drop table Users
         dao.dropUsersTable();
-
-        /*
-        //clean all data from the table
-        service.cleanUsersTable();
-        */
 
     }
 }
