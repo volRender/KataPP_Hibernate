@@ -30,7 +30,7 @@ public class Util {
     }
 
     // configuration using Hibernate
-    private static SessionFactory buildSessionFactory() {
+    public static SessionFactory buildSessionFactory() {
         try {
             Properties prop = new Properties();
             prop.put(Environment.DRIVER, DB_DRIVER);
