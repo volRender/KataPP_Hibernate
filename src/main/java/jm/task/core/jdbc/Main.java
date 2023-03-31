@@ -14,28 +14,27 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        UserDaoHibernateImpl dao = new UserDaoHibernateImpl();
+        UserServiceImpl service = new UserServiceImpl();
 
         //create table Users
-        dao.createUsersTable();
+        service.createUsersTable();
 
         //save 4 users for table data
-        dao.saveUser("Daniil", "Litvishko", (byte) 23);
-        dao.saveUser("Vladislav", "Varakin", (byte) 23);
-        dao.saveUser("Nikita", "Vasiliev", (byte) 22);
-        dao.saveUser("Lena", "Soroka", (byte) 22);
+        service.saveUser("Daniil", "Litvishko", (byte) 23);
+        service.saveUser("Vladislav", "Varakin", (byte) 23);
+        service.saveUser("Nikita", "Vasiliev", (byte) 22);
+        service.saveUser("Lena", "Soroka", (byte) 22);
 
         // get all users info from the table
-        List<User> userList = dao.getAllUsers();
+        List<User> userList = service.getAllUsers();
         for (User u: userList) {
             System.out.println(u);
         }
 
         //clean all data from the table
-        dao.cleanUsersTable();
+        service.cleanUsersTable();
 
         //drop table Users
-        dao.dropUsersTable();
-
+        service.dropUsersTable();
     }
 }
