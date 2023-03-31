@@ -32,7 +32,18 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void dropUsersTable() {
-
+        SessionFactory sessionFactory = Util.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        try  {
+            session.beginTransaction();
+            session.createSQLQuery("DROP TABLE users").executeUpdate();
+            session.getTransaction().commit();
+        } catch (Throwable e) {
+            session.getTransaction().rollback();
+            System.out.println("“аблицы не существует или произошла ина€ ошибка при выполнении запроса");
+        } finally {
+            sessionFactory.close();
+        }
     }
 
     @Override
